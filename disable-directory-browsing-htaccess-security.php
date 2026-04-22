@@ -6,7 +6,7 @@
  * Author:      Adeleye Ayodeji
  * Author URI:  https://adeleyeayodeji.com/
  * Description: Disable Apache directory browsing (Options -Indexes) by adding a safe, marker-based block to your site’s root .htaccess on activation.
- * Version:     0.1.0
+ * Version:     0.1.1
  * Requires at least: 5.0
  * Tested up to: 6.9
  * Requires PHP: 7.2
