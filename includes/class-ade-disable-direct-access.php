@@ -5,11 +5,11 @@ if (! defined('ABSPATH')) {
 }
 
 /**
- * Class AdeDisableDirectAccess
+ * Class Ade_DDBHS_Disable_Directory_Access
  *
  * A class to handle the activation and deactivation of the Disable Directory Access plugin.
  */
-class AdeDisableDirectAccess
+class Ade_DDBHS_Disable_Directory_Access
 {
     /**
      * Marker used in .htaccess to identify the plugin's rules.
@@ -43,6 +43,10 @@ class AdeDisableDirectAccess
             require_once ABSPATH . 'wp-admin/includes/file.php';
         }
 
+        if (! function_exists('WP_Filesystem')) {
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+        }
+
         if (! function_exists('insert_with_markers')) {
             require_once ABSPATH . 'wp-admin/includes/misc.php';
         }
@@ -54,12 +58,23 @@ class AdeDisableDirectAccess
 
         $htaccess_path = trailingslashit($home_path) . '.htaccess';
 
-        if (! file_exists($htaccess_path)) {
-            // Best-effort create so we can insert markers.
-            @touch($htaccess_path);
+        global $wp_filesystem;
+        if (! $wp_filesystem instanceof WP_Filesystem_Base) {
+            // Initializes the filesystem API. May fall back to 'direct' in typical hosting setups.
+            if (! WP_Filesystem()) {
+                return;
+            }
         }
 
-        if (! file_exists($htaccess_path) || ! is_writable($htaccess_path)) {
+        if (! $wp_filesystem->exists($htaccess_path)) {
+            // Best-effort create so we can insert markers.
+            $created = $wp_filesystem->put_contents($htaccess_path, '', defined('FS_CHMOD_FILE') ? FS_CHMOD_FILE : null);
+            if (! $created) {
+                return;
+            }
+        }
+
+        if (! $wp_filesystem->is_writable($htaccess_path)) {
             return;
         }
 

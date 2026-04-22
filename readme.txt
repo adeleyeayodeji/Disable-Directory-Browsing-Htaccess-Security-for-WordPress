@@ -1,10 +1,10 @@
 === Disable Directory Browsing Htaccess Security ===
 Contributors: adeleyeayodeji
 Donate link: https://adeleyeayodeji.com/
-Tags: security, hardening, htaccess, apache, directory browsing, indexes
+Tags: security, htaccess, apache, directory browsing, hardening
 Requires at least: 5.0
-Tested up to: 6.7
-Requires PHP: 7.4
+Tested up to: 6.9
+Requires PHP: 7.2
 Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -29,9 +29,9 @@ Important notes:
 
 == Installation ==
 
-1. Upload the `disable-directory-access` folder to the `/wp-content/plugins/` directory.
+1. Upload the `disable-directory-browsing-htaccess-security` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the **Plugins** menu in WordPress.
-3. Confirm your root `.htaccess` contains a block wrapped in `# BEGIN Disable Directory Access` / `# END Disable Directory Access`.
+3. Confirm your root `.htaccess` contains a block wrapped in `# BEGIN Disable Directory Access Plugin` / `# END Disable Directory Access Plugin`.
 
 == Frequently Asked Questions ==
 
