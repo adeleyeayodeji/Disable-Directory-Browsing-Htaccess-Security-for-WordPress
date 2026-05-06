@@ -1,11 +1,11 @@
-=== Disable Directory Browsing Htaccess Security ===
-Contributors: adeleyeayodeji
+=== IndexShield Directory Lock ===
+Contributors: biodunhi, adeleyeayodeji
 Donate link: https://adeleyeayodeji.com/
 Tags: security, htaccess, apache, directory browsing, hardening
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,8 +17,9 @@ Disable Directory Access is a lightweight security-hardening plugin that prevent
 
 On activation, the plugin safely inserts the following rules into your site’s root `.htaccess` using WordPress markers:
 
-* `#Disable directory browsing | Disable Direct Access Plugin`
+* `# BEGIN Disable Directory Access Plugin`
 * `Options All -Indexes`
+* `# END Disable Directory Access Plugin`
 
 On deactivation, the plugin removes only its own marked block.
 
@@ -29,7 +30,7 @@ Important notes:
 
 == Installation ==
 
-1. Upload the `disable-directory-browsing-htaccess-security` folder to the `/wp-content/plugins/` directory.
+1. Upload the `indexshield-directory-lock` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the **Plugins** menu in WordPress.
 3. Confirm your root `.htaccess` contains a block wrapped in `# BEGIN Disable Directory Access Plugin` / `# END Disable Directory Access Plugin`.
 
@@ -48,6 +49,9 @@ No. The plugin uses WordPress marker blocks and only adds/removes its own marked
 The plugin won’t be able to write the rules. Ensure the web server user has permission to update the site root `.htaccess`.
 
 == Changelog ==
+
+= 0.1.2 =
+* Updated plugin namespaces and text domains to match new plugin slug.
 
 = 0.1.1 =
 * Update plugin URI and text domain to match new plugin slug.

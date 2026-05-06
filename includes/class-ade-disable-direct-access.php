@@ -5,11 +5,11 @@ if (! defined('ABSPATH')) {
 }
 
 /**
- * Class Ade_DDBHS_Disable_Directory_Access
+ * Class ADEINDIL_DDBHS_Disable_Directory_Access
  *
  * A class to handle the activation and deactivation of the Disable Directory Access plugin.
  */
-class Ade_DDBHS_Disable_Directory_Access
+class ADEINDIL_DDBHS_Disable_Directory_Access
 {
     /**
      * Marker used in .htaccess to identify the plugin's rules.
@@ -80,7 +80,7 @@ class Ade_DDBHS_Disable_Directory_Access
 
         $lines = $enable
             ? array(
-                '#Disable directory browsing | Disable Direct Access Plugin',
+                '#Disable directory browsing | ' . self::MARKER,
                 'Options All -Indexes',
             )
             : array();
