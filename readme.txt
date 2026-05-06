@@ -5,7 +5,7 @@ Tags: security, htaccess, apache, directory browsing, hardening
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ No. The plugin uses WordPress marker blocks and only adds/removes its own marked
 The plugin won’t be able to write the rules. Ensure the web server user has permission to update the site root `.htaccess`.
 
 == Changelog ==
+
+= 0.1.3 =
+* Updated plugin.
 
 = 0.1.2 =
 * Updated plugin namespaces and text domains to match new plugin slug.
